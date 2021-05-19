@@ -1,0 +1,18 @@
+Paste the configuration below into config.cson (be sure to install the atom-shell-commands package and https://github.com/Bridgeconn/usfm-grammar):
+
+```
+  "atom-shell-commands":
+    commands: [
+      {
+        name: "check-format"
+        command: "usfm-grammar"
+        arguments: [
+          "{FileName}"
+        ]
+        options:
+          cwd: "{FileDir}"
+          keymap: 'ctrl-2'
+          save: true
+      }
+    ]
+```
