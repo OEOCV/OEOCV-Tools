@@ -10,5 +10,9 @@ for current_book in $BIBLE_PATH/*.usfm; do
 		JSON_OUT=$(usfm-grammar $current_book) # TODO: Show only the error messages to make this easier to read
 		#echo $JSON_OUT
 		JSON_PARSED=$(echo $JSON_OUT | jq -M '.. | ._warnings? //empty')
-		echo $JSON_PARSED
+		if [ "$JSON_PARSED" != '[]' ] && [ ! -z "$JSON_PARSED" ]
+		then
+			echo $current_book
+			echo $JSON_PARSED
+		fi
 done
