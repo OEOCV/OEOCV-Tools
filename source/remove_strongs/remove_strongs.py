@@ -11,6 +11,7 @@ import sys
 
 def remove_text(book):
 	new_book = re.sub(r'\b(\|strong)\b[^"]+"([^"]*)"', "", book)  # Uses a raw string for the regex pattern
+	new_book = re.sub(r'\b(\’\|strong)\b[^"]+"([^"]*)"', "’", book)
 	new_book = re.sub(r'(\\w\*|\\w )', "", new_book)
 	return new_book
 
